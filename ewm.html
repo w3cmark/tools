@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>二维码在线生成</title>
+<meta name="keywords" content="标题" />
+<meta name="description" content="标题" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<style type="text/css">
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+ul,li,div,p,body{margin:0;padding:0;text-align:left;}
+li{list-style:none;}
+a{text-decoration:none;}
+img{vertical-align:top;}
+i,em{font-style:normal;}
+.hide{display:none;}
+body, html {background:#eee;text-align: left;height: 100%;width: 100%;font-family: "Microsoft YaHei","Helvetica Neue",Arial, HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;font-size:62.5%;font-weight: normal;}
+*{-webkit-tap-highlight-color:rgba(14,159,111,0.5);-webkit-touch-callout:none;}
+
+.main{width:1000px;margin:0 auto}
+.header{width: 100%;height:60px;background: #1f1f21;margin-bottom: 30px;}
+.header-logo{display: inline-block;height:60px;line-height: 60px;color:#fff;background: #FA7D3C;text-align: center;font-size: 26px;padding:0 15px;}
+.weixinjsapi a{background: #fff;color:#333;height:32px;line-height: 32px;padding:5px 15px;box-shadow:0px 0px 1px 0px rgba(0, 0, 0, 0.15);-webkit-transition:all 0.3s ease-out;-o-transition:all 0.3s ease-out;-ms-transition:all 0.3s ease-out;-moz-transition:all 0.3s ease-out;transition:all 0.3s ease-out;margin: 10px;display: inline-block;font-size:16px;}
+.weixinjsapi a:hover{color:#fff;background: #FA7D3C;}
+.ewm{text-align: center;margin-bottom: 15px;}
+.footer{text-align: center;color:#ccc;height:40px;line-height: 40px;margin-top: 20px;font-size:14px;}
+.footer a{color:#bbb;}
+.footer a:hover{color:#f60;}
+.spanclass{display: none;}
+
+.basetext{resize:none; height: 300px; width: 600px; padding: 10px;border: 1px solid #ddd;box-shadow: 0 0 5px #eee inset; color: #888; background: #fcfcfc; margin-bottom: 15px;font-size:16px;}
+.showpic{float: right; width: 360px; border: 1px dashed #ddd; height: 320px; text-align: center; line-height: 320px; color: #ddd;background:#fcfcfc;font-size:16px;}
+.showpic img{max-width: 95%;max-height: 95%; vertical-align: middle;}
+.input{position: relative;color: #777}
+.btn{display:inline-block;width: 230px;height: 40px;line-height:40px;text-align:center;background:#FA7D3C;color:#fff;font-weight:bold;font-size:18px;-webkit-appearance:none;cursor: pointer; margin:0 150px 0 190px;}
+.btnA{background:#aaa;position:relative;}
+.img-input{width: 230px; height: 40px;position: absolute; left: 255px; top: 0;opacity: 0;cursor: pointer;}
+.m-size{display:inline-block;margin-left:30px;}
+.m-color{display:inline-block;margin-left:30px;line-height:25px;}
+.m-color label{margin-left:10px;}
+.iColorPicker{display:none}
+.color{float:left;display:inlie;border:1px solid #b3b3b3;padding:1px;width:22px;height:22px;overflow:hidden}
+.colorPicker-picker{display:inline-block;width:22px;height:22px;cursor:pointer;vertical-align:top;}
+.colors select{margin-top:2px}
+</style>
+</head>
+<body>
+
+<div class='header'><span class="header-logo">二维码在线生成</span></div>
+<div id="main" class="main">	
+    <textarea name="text" id="Jbasetext" class="basetext" placeholder="请输入文字内容，支持普通文本和网址！"></textarea>
+    <div id="Jshowewm" class="showpic">
+        二维码预览区
+    </div>
+	<div class="input">
+        <span class="btn" id="Jbtn">生成</span>
+        <!-- <span class="btn btnA">嵌入LOGO</span>
+        <input id="Jbtnlogo" class="img-input" type="file" accept="image/*"/> -->
+        
+        <div class="m-size">大小：
+            <label><input type="radio" name="ewmSize" value="128" hidefocus="" onclick="ewm.createEwm()">128px</label>
+            <label><input type="radio" name="ewmSize" value="256" hidefocus="" checked="checked" onclick="ewm.createEwm()">256px</label>
+            <label><input type="radio" name="ewmSize" value="562" hidefocus="" onclick="ewm.createEwm()">562px</label>
+        </div>
+
+        <div class="m-color">
+            <label>前景色</label>
+            <input id="fgcolor" name="mycolor" type="text" value="000000" class="iColorPicker" style="background-color: rgb(0, 0, 0);">
+
+            <label>背景色</label>
+            <input id="bgcolor" name="mycolor" type="text" value="ffffff" class="iColorPicker" style="background-color: rgb(255, 255, 255);">
+        </div>
+    </div>
+
+</div>
+	<div class="footer"> Powered by <a href="javascript:;" href="http://w3cmark.com">w3cmark.com</a></div>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/iColorPicker.js"></script>
+<script type="text/javascript">
+var ewm = {
+    text_con : document.getElementById('Jbasetext'),
+    show_ele : document.getElementById('Jshowewm'),
+    btn : document.getElementById('Jbtn'),
+    ewm_size : document.getElementsByName('ewmSize'),
+    loc_href : window.location,
+    fgcolor : document.getElementById('fgcolor').value,
+    bgcolor : document.getElementById('bgcolor').value,
+    // up_btn : document.getElementById('Jbtnlogo'),
+    // logo_url : '',
+    init : function(){
+        var _this = this;
+        _this.showEwm(_this.loc_href,_this.getRadioValue(_this.ewm_size),_this.fgcolor,_this.bgcolor);
+        _this.btn.onclick = function(){
+            _this.createEwm();
+        };        
+    },
+    createEwm : function(){
+        var _this = this,
+            val = _this.text_con.value;
+            if(val == ''){
+                alert('请输入文字内容，支持普通文本和网址！')
+                return;
+            };
+            var fgcolor = document.getElementById('fgcolor').value,
+                bgcolor = document.getElementById('bgcolor').value;                
+            _this.showEwm(_this.text_con.value,_this.getRadioValue(_this.ewm_size),fgcolor,bgcolor);
+    },
+    showEwm : function(url,w,fg,bg){
+        var _this = this;
+            // _this.logo_url = logo ? logo : '';
+        var api = 'http://qr.liantu.com/api.php?w='+ w +'&bg=fcfcfc&text='+ url +'&bg='+ bg + '&fg='+ fg,
+            img_html = '<img src="'+ api +'" alt="" />';
+            _this.show_ele.innerHTML = img_html;
+    },
+    getRadioValue : function(obj){
+        if(obj != null){
+            var i;
+            for(i=0;i<obj.length;i++){
+                if(obj[i].checked){
+                    return obj[i].value;            
+                }
+            }
+        }
+        return null;
+    }
+}
+ewm.init();
+</script>
+</body>
+</html>
