@@ -12,6 +12,10 @@
 
 ![base64截图](img/base64.png)
 
++ 工具地址
+
+http://www.w3cmark.com/tools/base64.html
+
 ###二维码在线生成
 
 + 工具介绍
@@ -22,6 +26,9 @@
 
 ![二维码截图](img/ewm.png)
 
++ 工具地址
+
+http://www.w3cmark.com/tools/ewm.html
 
 Powered by http://www.w3cmark.com
 
