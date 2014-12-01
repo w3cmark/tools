@@ -5,7 +5,7 @@
 <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 <title>Base64 图片转换——w3cmark工具——前端笔记网</title>
 <meta name="keywords" content="前端笔记,前端资讯,前端技术,前端bug,前端招聘,前端面试,前端导航,前端API" />
-<meta name="description" content="W3Cmark,中国第一Web前端开发学习网站，汇聚了广大中国Web前端开发工程师，并为工程师及企业提供优质的前端资源和服务，是国内前端开发最贴心的综合服务平台。" />
+<meta name="description" content="w3cmark_前端笔记网是专注前端资源整合和学习网站，为你提供最专业的前端笔记和前端资源，并为工程师及企业提供优质的前端资源和贴心服务，包括前端资讯、前端资源下载、前端导航、前端招聘、前端面试和前端技术等。" />
 <style type="text/css">
 body{background:#FFF;padding:0px;margin:0px auto;font-size:15px;color:#454545;font-family:Helvetica,Microsoft YaHei,Microsoft JhengHei;}
 a{color:#454545;text-decoration:none;}
@@ -24,7 +24,7 @@ i,em{font-style:normal;}
 .header-logo .i1{color: #e33b79}
 .header-logo .i2{color: #9bbb1b}
 
-.main {width: 1000px;margin: 50px auto 0;overflow:hidden;}
+.main {width: 1000px;margin: 50px auto 0;overflow:hidden;min-height:685px;}
 .basetext{resize:none; height: 300px; width: 600px; padding: 10px;border: 1px solid #ddd;box-shadow: 0 0 5px #eee inset; color: #888; background: #fafafa; margin-bottom: 15px}
 .input{position: relative;color: #777}
 .input input{ width: 130px; height: 40px;position: absolute; left: 0; top: 0;opacity: 0;cursor: pointer;}
@@ -32,20 +32,26 @@ i,em{font-style:normal;}
 .btnA{ background: #aaa}
 .showpic{float: right; width: 360px; border: 1px dashed #ddd; height: 320px; text-align: center; line-height: 320px; color: #ddd}
 .showpic img{max-width: 95%;max-height: 95%; vertical-align: middle;}
-.footer {color:#ccc;text-align:center;padding:50px 0;}
-.footer a{color: #bbb}
+.footer{ background: #414141; color: #a3a3a3; padding: 30px 15px 10px; line-height: 24px; text-align: center;}
+.footer-le,.footer-cen,.footer-ri{ width: 290px; display: inline-block; vertical-align: top;}
+.footer span,.footer a{ height: 24px; line-height: 24px; display: block; margin: 10px 0; color: #a3a3a3}
+.footer .span1{ color: #fff; font-size: 16px}
+.footer-ri{ margin: 10px; text-align: left; width: 360px}
+
 </style>
 </head>
 <body>
 	<div class="header">
 		<div class="header-top">
 		<a class="header-logo" href="http://www.w3cmark.com/" title="前端笔记-w3cmark"><i class="i1">W</i><i class="i2">3</i><i>C</i>mark</a>
-			<a href="http://www.w3cmark.com/a/qianduanzixun/" title="前端资讯">前端资讯</a>
-			<a href="http://www.w3cmark.com/a/qianduanjishu/" title="前端技术">前端技术</a>
-			<a href="http://www.w3cmark.com/a/qianduanbug/" title="前端BUG">前端BUG</a>
-			<a href="http://www.w3cmark.com/a/qianduanzhaopin/" title="前端招聘">前端招聘</a>
-			<a href="http://www.w3cmark.com/a/qianduanmianshi/" title="前端面试">前端面试</a>
-			<a href="http://www.w3cmark.com/demo/" title="前端Demo Lib">Demo Lib</a>
+			<a href="http://www.w3cmark.com/a/qianduanzixun/">前端资讯</a>
+			<a href="http://www.w3cmark.com/a/qianduanjishu/">前端技术</a>
+            <a href="http://www.w3cmark.com/a/download/">资源下载</a>
+            <a href="http://www.w3cmark.com/a/weekly/">前端周刊</a>
+			<a href="http://www.w3cmark.com/a/qianduanbug/">前端BUG</a>
+			<a href="http://www.w3cmark.com/a/qianduanzhaopin/">前端招聘</a>
+			<a href="http://www.w3cmark.com/a/qianduanmianshi/">前端面试</a>
+            <a href="http://www.w3cmark.com/mark/" title="前端导航">导航</a>
 		</div>
 	</div>
 
@@ -67,8 +73,24 @@ i,em{font-style:normal;}
 		</div>
 	</div>
 <div class="footer">
-<p >Powered by <a href="http://www.w3cmark.com" target="_blank">W3Cmark</a></p>
+	<div class="footer-le">
+		<span class="span1">w3cmark</span>
+		<span><a href="http://www.w3cmark.com/a/about.html" target="_blank" title="W3Cmark">关于我们</a></span>
+		<span>版权隐私</span>
+		<span>免责声明</span>
+		<span>投诉建议</span>
+	</div>
+	<div class="footer-cen">
+		<span class="span1">合作伙伴</span>
+		<span>广告合作</span>
+		<span><a href="http://weibo.com/iweip" target="_blank">新浪微博</a></span>
+                    <span><a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=732ef45e8481d720866466636878a16d4eeb1a2ee9b2c2fc4f4ce8a880d4155a"><img border="0" src="http://www.w3cmark.com/images/group.png" alt="前端笔记" title="前端笔记"></a></span>
+	</div>
+	<div class="footer-ri">
+		<p>w3cmark_前端笔记网是专注前端资源整合和学习网站，为你提供最专业的前端笔记和前端资源，并为工程师及企业提供优质的前端资源和贴心服务。<br/> <br/> Copyright © W3Cmark.com 粤ICP备14088134号-1</p>
+	</div>
 </div>
+
 
 <script type="text/javascript">
 /*
